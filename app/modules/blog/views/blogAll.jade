@@ -1,0 +1,15 @@
+div#spinner(tk-loading).text-center 
+  i(class="fa fa-spinner fa-pulse fa-5x" )
+div(ng-repeat="post in posts")
+  .well.row
+    .col-xs-8
+      h2 
+        a(ui-sref="postSingle({id: post._id})") {{post.title}}
+      p {{post.text | truncate:80:" [.....] "}}
+    .col-xs-4.post-info
+      div.text-right
+        tk-rating(value="post.rating" min="1" max="5").post-rate
+      div.text-right
+        p {{post.slug}}    
+div.text-center
+  pagination.pagination(ng-model="currentPage" total-items="totalItems" items-per-page="numPerPage")

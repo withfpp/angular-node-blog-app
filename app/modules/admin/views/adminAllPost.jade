@@ -1,0 +1,12 @@
+.row
+  div#loading-indicator(ng-show="loading").text-center 
+    a.btn.btn-primary(href="#")
+      i.fa.fa-circle-o-notch.fa-spin.fa-5x
+      p Synchronizing Admin Contents.....
+  
+  table.table.table-hover
+    tr(ng-repeat="post in posts")
+      td.col-xs-8 {{post.title}}
+      td.col-xs-4
+        a(ui-sref="admin.postUpdate({id:post._id})").btn.btn-primary Edit
+        a(ng-click="deletePost(post)").btn.btn-danger Delete

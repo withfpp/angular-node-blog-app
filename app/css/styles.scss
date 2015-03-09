@@ -1,0 +1,7 @@
+@mixin set-width($percentage){
+  width: $percentage;
+}
+
+.tk-full-w {
+  @include set-width(100%)
+}

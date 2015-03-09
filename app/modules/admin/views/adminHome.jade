@@ -1,0 +1,10 @@
+.row
+  .col-xs-3
+    ul.nav.nav-pills.nav-stacked.on-click-make-active
+      li(ng-class="{active: isActive('/admin/posts/all')}")
+        a(ui-sref="admin.postViewAll") View All Posts 
+      li(ng-class="{active: isActive('/admin/posts/new')}")
+        a(ui-sref="admin.postNew") Add Post 
+
+  .col-xs-9.col-sm-9.col-md-9.col-lg-9.border-left
+    div(ui-view="")        

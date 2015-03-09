@@ -1,0 +1,13 @@
+.form-group(ng-class="{'has-error':newPostForm.title.$dirty && newPostForm.title.$invalid}")
+  label.col-sm-2.control-label(for="title") Title
+  .col-sm-10
+    input(type="text", name="title", id="title", ng-model="post.title", ng-required="true", placeholder="Title").form-control
+    span.error-message(ng-show="newPostForm.title.$dirty && newPostForm.title.$invalid") This field is mandatory.
+.form-group(ng-class="{'has-error':newPostForm.text.$dirty && newPostForm.text.$invalid}")
+  label.col-sm-2.control-label(for="text") Body
+  .col-sm-10
+    textarea(type="text", name="text", id="text", ng-model="post.text", ng-required="true", placeholder="content body").form-control
+    span.error-message(ng-show="newPostForm.text.$dirty && newPostForm.text.$invalid") This field is mandatory.
+.form-group
+  .col-sm-offset-2.col-sm-10
+    button(type="summit",ng-disabled="newPostForm.$invalid").btn.btn-success.tk-full-w {{buttonText}} 
