@@ -1,4 +1,5 @@
 paginate = (arr, currentPage, pageSize) ->
+  arr = arr.reverse()
   arr.slice((currentPage-1)*pageSize, currentPage*pageSize)
 
 truncate = (text, length, end) ->

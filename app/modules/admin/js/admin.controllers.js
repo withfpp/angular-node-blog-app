@@ -106,7 +106,6 @@ PostListCtrl = (function() {
 
   PostListCtrl.prototype.getPosts = function() {
     this.$scope.loading = true;
-    console.log(this.BlogService.query().$promise);
     return this.BlogService.query().$promise.then((function(_this) {
       return function(data) {
         return setTimeout(function() {

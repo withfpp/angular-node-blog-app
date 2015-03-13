@@ -10,7 +10,7 @@
 .main-header-box 
   h1 Recent posts
 .recent-blogs(ng-controller="PostAllCtrl")
-  div(ng-repeat="post in posts")
+  div(ng-repeat="post in posts | orderBy:'_id':true")
     .well.row
       .col-xs-8
         h2 

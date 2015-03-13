@@ -30,7 +30,8 @@ angular.module('myApp.blog.controllers', []).controller('PostAllCtrl', [
     return BlogService.get({
       id: id
     }, function(data) {
-      return $scope.post = data;
+      $scope.post = data;
+      return console.log($scope.post.text);
     });
   }
 ]);

@@ -2,6 +2,7 @@
 var paginate, truncate;
 
 paginate = function(arr, currentPage, pageSize) {
+  arr = arr.reverse();
   return arr.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 };
 

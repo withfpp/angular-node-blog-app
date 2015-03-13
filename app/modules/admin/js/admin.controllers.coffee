@@ -59,7 +59,7 @@ class PostListCtrl
 
   getPosts: ->
     @$scope.loading = true
-    console.log(@BlogService.query().$promise)
+
     # just for fun
     @BlogService.query()
       .$promise

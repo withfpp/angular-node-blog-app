@@ -22,6 +22,7 @@ angular.module('myApp.blog.controllers', [])
         @$scope.currentPage = 1
 
         @$scope.numPerPage = 4
+        
         @$scope.$watchGroup(
           ['currentPage', 'numPerPage'],
           =>
@@ -39,6 +40,7 @@ angular.module('myApp.blog.controllers', [])
       id = $stateParams.id
       BlogService.get({id: id}, (data)->
         $scope.post = data
+        console.log($scope.post.text)
       )
   ]
 
