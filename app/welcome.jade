@@ -1,0 +1,23 @@
+.hero.hero-1.first 
+  .content 
+    h1 Angular Blog Application
+    .tk-main-button-1(ui-sref="admin") 
+      .inner Admin Mode
+    .tk-main-button-2(ui-sref="postAll") 
+      .inner See Blogs
+    .inner-text-box  
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero facilis, tenetur omnis laborum sequi. Voluptates minus perferendis, eos deserunt libero sit unde in debitis. Ratione modi unde perspiciatis inventore maiores.
+.main-header-box 
+  h1 Recent posts
+.recent-blogs(ng-controller="PostAllCtrl")
+  div(ng-repeat="post in posts")
+    .well.row
+      .col-xs-8
+        h2 
+          a(ui-sref="postSingle({id: post._id})") {{post.title}}
+        p {{post.text | truncate:80:" [.....] "}}
+      .col-xs-4.post-info
+        div.text-right
+          tk-rating(value="post.rating" min="1" max="5").post-rate
+        div.text-right
+          p {{post.slug}}  

@@ -17,6 +17,7 @@ var paths = {
   styles: ['app/**/*.scss', '!app/bower_components/**/*.scss'],
   js: ['app/**/*.js', 'app/modules/**/*.js',  '!app/bower_components/**/*.js'],
   views: ['app/**/*.jade'],
+  img: ['app/img/*.jpg'],
   dest: 'dist',
   bower: 'app/bower_components'
 };
@@ -34,8 +35,9 @@ gulp.task('scripts', function () {
 
 gulp.task('styles', function () {
   return gulp.src(paths.styles)
-    .pipe(sass({style: 'expanded'}))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+    .pipe(plumber())
+    .pipe(sass({style: 'expanded'}))
     .pipe(gulp.dest(paths.dest))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
@@ -56,6 +58,10 @@ gulp.task('views', function () {
     .pipe(gulp.dest(paths.dest))
 })
 
+gulp.task('img', function(){
+  return gulp.src(paths.img)
+    .pipe(gulp.dest(paths.dest + '/img'))
+})
 
 gulp.task('watch', function () {
   gulp.watch(paths.js, ['scripts', browserSync.reload]);

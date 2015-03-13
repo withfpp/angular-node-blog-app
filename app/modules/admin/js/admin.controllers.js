@@ -113,7 +113,7 @@ PostListCtrl = (function() {
           _this.$scope.posts = data;
           _this.$scope.loading = false;
           return _this.$scope.$apply();
-        }, 5000);
+        }, 2000);
       };
     })(this));
   };

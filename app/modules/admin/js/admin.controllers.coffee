@@ -69,7 +69,7 @@ class PostListCtrl
             @$scope.posts = data
             @$scope.loading = false  
             @$scope.$apply()
-          ,5000)
+          ,2000)
       )
 
 

@@ -13,14 +13,12 @@ angular.module('myApp', [
     '$urlRouterProvider'
     ($locationProvider, $stateProvider, $urlRouterProvider) ->
       $urlRouterProvider
-        .otherwise('/posts');
+        .otherwise('/home');
 
       $stateProvider
-        .state('test', {
-          url: '/test'
-          templateUrl: '/modules/blog/views/test.html'
-          controller: () ->
-            alert('test')
+        .state('home', {
+          url: '/home'
+          templateUrl: 'welcome.html'
         })
   ])  
   .controller('navCtrl', ['$scope', '$location', ($scope, $location) ->
@@ -28,3 +26,8 @@ angular.module('myApp', [
       console.log($location.path())
       viewLocation is $location.path()   
   ])
+
+
+
+
+
