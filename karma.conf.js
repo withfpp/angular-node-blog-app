@@ -15,7 +15,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-
       'dist/bower_components/jquery/dist/jquery.min.js',
       'dist/bower_components/angular/angular.js',
       'dist/bower_components/angular-resource/angular-resource.js',
@@ -23,6 +22,7 @@ module.exports = function(config) {
       'dist/bower_components/angular-ui-router/release/angular-ui-router.js',
       'dist/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'dist/bower_components/angular-mocks/angular-mocks.js',
+      'dist/bower_components/sinon/lib/sinon.js',
       'dist/js/app.js',
       'test/**/*.js'
     ],
@@ -37,15 +37,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.html': ['ng-html2js']
+      '**/*.html':'ng-html2js'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
-
+    reporters: ['progress','html'],
 
     // web server port
     port: 9876,
@@ -63,6 +62,11 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
+    // plugins: [
+    //   'karma-chrome-launcher',
+    //   'karma-jasmine',
+    //   'karma-ng-html2js-preprocessor'
+    // ],
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher

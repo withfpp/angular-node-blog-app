@@ -52,7 +52,7 @@ class PostUpdateCtrl
 class PostListCtrl
 
   constructor: (@$scope, @BlogService, @$state) ->
-    
+    @$scope.posts = []
     @getPosts()
     
     @$scope.deletePost = @deletePost
@@ -61,7 +61,8 @@ class PostListCtrl
     @$scope.loading = true
 
     # just for fun
-    @BlogService.query()
+    @BlogService
+      .query()
       .$promise
       .then(
         (data) =>

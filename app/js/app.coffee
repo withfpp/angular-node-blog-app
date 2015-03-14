@@ -23,7 +23,6 @@ angular.module('myApp', [
   ])  
   .controller('navCtrl', ['$scope', '$location', ($scope, $location) ->
     $scope.isActive = (viewLocation) =>
-      console.log($location.path())
       viewLocation is $location.path()   
   ])
 

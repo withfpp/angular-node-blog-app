@@ -1,5 +1,4 @@
 paginate = (arr, currentPage, pageSize) ->
-  arr = arr.reverse()
   arr.slice((currentPage-1)*pageSize, currentPage*pageSize)
 
 truncate = (text, length, end) ->
@@ -10,6 +9,8 @@ truncate = (text, length, end) ->
 
   if text.length <= length or text.length - end.length <= length
     text
+
+    
   else
     String(text).substring(0, length - end.length) + end
     

@@ -10,12 +10,13 @@ angular.module('myApp.blog.controllers', [])
     (@$scope, BlogService, $filter, $q) ->
 
       @init = =>
-        BlogService.query(
-          (data) =>
-            @posts = data
-            @$scope.totalItems = @posts.length
-            @paginate()
-        )
+        BlogService
+          .query(
+            (data) =>
+              @posts = data.reverse()
+              @$scope.totalItems = @posts.length
+              @paginate()
+          )
  
       @paginate = =>
         @$scope.posts = []
@@ -40,7 +41,6 @@ angular.module('myApp.blog.controllers', [])
       id = $stateParams.id
       BlogService.get({id: id}, (data)->
         $scope.post = data
-        console.log($scope.post.text)
       )
   ]
 

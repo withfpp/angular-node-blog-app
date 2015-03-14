@@ -11,7 +11,6 @@ angular.module('myApp', ['ui.router', 'ui.bootstrap', 'ngRoute', 'ngResource', '
   '$scope', '$location', function($scope, $location) {
     return $scope.isActive = (function(_this) {
       return function(viewLocation) {
-        console.log($location.path());
         return viewLocation === $location.path();
       };
     })(this);

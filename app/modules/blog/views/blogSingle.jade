@@ -3,5 +3,8 @@
     h1 {{post.title}}
   .context-box 
     p {{post.text}}
+  .content-box.text-center
+    p Rating this article
+    tk-rating(value="post.rating" id="post._id" min="1" max="5").post-rate  
   p {{post.slug}}
   button.btn.btn-primary(ui-sref="postAll") Back 

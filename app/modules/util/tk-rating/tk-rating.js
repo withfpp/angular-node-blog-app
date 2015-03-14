@@ -5,12 +5,13 @@ tkRating = function() {
   var rating;
   rating = {
     scope: {
-      value: "="
+      value: "=",
+      id: "="
     },
     require: "tkRating",
     templateUrl: "/modules/util/tk-rating/rating.html",
     controller: "tkRatingCtrl",
-    link: function(scope, elenemt, attributes, controller) {
+    link: function(scope, element, attributes, controller) {
       var max, min;
       min = parseInt(attributes.min || "1");
       max = parseInt(attributes.max || "5");
@@ -20,7 +21,7 @@ tkRating = function() {
   return rating;
 };
 
-tkRatingCtrl = function($scope) {
+tkRatingCtrl = function($scope, BlogService) {
   this.init = (function(_this) {
     return function(min, max) {
       $scope.preview = -1;
@@ -29,7 +30,15 @@ tkRatingCtrl = function($scope) {
   })(this);
   $scope.click = (function(_this) {
     return function($index) {
-      return $scope.value = $index + 1;
+      $scope.value = $index + 1;
+      return BlogService.get({
+        id: $scope.id
+      }).$promise.then(function(data) {
+        data.rating = $scope.value;
+        return data.$update();
+      })["catch"](function(err) {
+        return console.log(err);
+      });
     };
   })(this);
   $scope.mouseover = (function(_this) {

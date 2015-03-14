@@ -5,7 +5,7 @@ angular.module('myApp.blog.controllers', []).controller('PostAllCtrl', [
     this.init = (function(_this) {
       return function() {
         return BlogService.query(function(data) {
-          _this.posts = data;
+          _this.posts = data.reverse();
           _this.$scope.totalItems = _this.posts.length;
           return _this.paginate();
         });
@@ -30,8 +30,7 @@ angular.module('myApp.blog.controllers', []).controller('PostAllCtrl', [
     return BlogService.get({
       id: id
     }, function(data) {
-      $scope.post = data;
-      return console.log($scope.post.text);
+      return $scope.post = data;
     });
   }
 ]);

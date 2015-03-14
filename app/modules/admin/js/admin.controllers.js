@@ -100,6 +100,7 @@ PostListCtrl = (function() {
     this.BlogService = BlogService;
     this.$state = $state;
     this.deletePost = __bind(this.deletePost, this);
+    this.$scope.posts = [];
     this.getPosts();
     this.$scope.deletePost = this.deletePost;
   }
